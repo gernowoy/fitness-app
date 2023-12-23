@@ -50,8 +50,8 @@ const Navbar = ({isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                   />
                 </div>
                 <div className={`${flexBtw} gap-8`}>
-                  <p>Sign In</p>
-                  <ActionButton setSelectedPage={setSelectedPage} >Become a member</ActionButton>
+                  <p>Регистрация</p>
+                  <ActionButton setSelectedPage={setSelectedPage} >Стать участником</ActionButton>
                 </div>
               </div>
             ) : (
