@@ -1,4 +1,5 @@
 import Navbar from "@/scenes/navbar";
+import Home from "@/scenes/home";
 import { useEffect, useState } from "react";
 
 export type SelectedPageType = 'главная' | 'преимущества' | 'занятия' | 'контакты' 
@@ -12,18 +13,14 @@ function App() {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY === 0) {
-        setIsTopOfPage(true)
-        setSelectedPage('главная')
+        setIsTopOfPage(true);
+        setSelectedPage('главная');
       }
-      if ((window.scrollY !== 0)) {
-        setIsTopOfPage(false)
-      }
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
+      if (window.scrollY !== 0) setIsTopOfPage(false);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className="app bg-gray-20">
@@ -31,6 +28,8 @@ function App() {
       isTopOfPage={isTopOfPage}
       selectedPage={selectedPage} 
       setSelectedPage={setSelectedPage} />
+      <Home setSelectedPage={setSelectedPage} />
+      
     </div>
   );
 }
